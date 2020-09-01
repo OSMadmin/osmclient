@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: osm-client
+spec:
+  replicas: 1
+  #revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: osm-client
+  template:
+    metadata:
+      labels:
+        app: osm-client
+    spec:
+      containers:
+      - name: osm-client
+        image: index.docker.io/osmhub/osm_ro:v8.0.1 #gcr.io/heptio-images/ks-guestbook-demo:0.2
+        #name: sample-nodejs-app
+        ports:
+        - containerPort: 80
