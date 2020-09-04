@@ -16,6 +16,10 @@ spec:
       containers:
       - name: osm-client
         image: index.docker.io/osmhub/osm_ro:v8.0.0 #gcr.io/heptio-images/ks-guestbook-demo:0.2
+      # Just sleep forever
+        command: [ "sleep" ]
+        args: [ "infinity" ]
         #name: sample-nodejs-app
         ports:
         - containerPort: 80
+        
